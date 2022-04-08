@@ -1,0 +1,22 @@
+.room {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s;
+}
+
+.lightRoom {
+  composes: room; /* turn off css.lint.unknownProperties */
+  background-color: #ffffff;
+}
+
+.darkRoom {
+  composes: room;
+  background-color: #222222;
+}
