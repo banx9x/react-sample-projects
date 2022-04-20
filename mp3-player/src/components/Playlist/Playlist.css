@@ -1,0 +1,61 @@
+.playlist {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  background-color: #170f23;
+  transition: transform 0.4s ease-in-out;
+  overflow-y: auto;
+  transform: translateY(100%);
+  z-index: 9999;
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.playlist.show {
+  transform: translateY(0);
+}
+
+.heading {
+  font-size: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid hsl(0, 0%, 100%, 0.1);
+}
+
+.song {
+  padding: 10px;
+  border-bottom: 1px solid hsl(0, 0%, 100%, 0.1);
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.song:hover,
+.song.is-current {
+  background-color: hsl(264, 40%, 20%);
+}
+
+.cover {
+  max-width: 40px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.cover .cover-overlay {
+  position: absolute;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  .playlist {
+    max-width: 400px;
+    transform: translateX(100%);
+  }
+
+  .playlist.show {
+    transform: translateX(0);
+  }
+}

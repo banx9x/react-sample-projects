@@ -1,0 +1,53 @@
+.thumbnail {
+  flex-shrink: 0;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  animation: spin 20s linear 0s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.content {
+  margin-right: 10px;
+  min-width: 0;
+}
+
+.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.singer {
+  font-size: 80%;
+  color: hsl(0, 0%, 100%, 0.5);
+}
+
+@media screen and (min-width: 576px) {
+  .thumbnail {
+    width: 66px;
+    height: 66px;
+  }
+
+  @supports (-webkit-line-clamp: 2) {
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: initial;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

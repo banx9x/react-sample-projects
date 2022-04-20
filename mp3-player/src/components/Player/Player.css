@@ -1,0 +1,11 @@
+.player {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #170f23;
+  color: #ffffff;
+  user-select: none;
+  z-index: 10000;
+}
