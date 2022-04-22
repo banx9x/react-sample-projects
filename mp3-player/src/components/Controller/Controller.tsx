@@ -17,12 +17,16 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 export interface ControllerProps {}
 
 const Controllers: React.FC<ControllerProps> = ({}) => {
-  const { state, dispatch } = useContext(PlayerContext);
+  const { state, audioRef, dispatch } = useContext(PlayerContext);
 
   const handlePlay = useCallback(() => {
+    if (!audioRef.current) return;
+
     if (!state.playing) {
+      audioRef.current.play();
       dispatch({ type: 'play' });
     } else {
+      audioRef.current.pause();
       dispatch({ type: 'pause' });
     }
   }, [state.playing]);
