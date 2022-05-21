@@ -1,5 +1,5 @@
-import { useReducer } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useEffect, useReducer } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import {
   Header,
@@ -10,9 +10,18 @@ import {
   Terminal,
 } from 'components';
 import { LayoutContext, layoutReducer } from './LayoutContext';
+import productApi from 'services/product.services';
 
 const Layout = () => {
+  const location = useLocation();
   const [state, dispatch] = useReducer(layoutReducer, {});
+  productApi.endpoints.getNewArivals.useQuery(1);
+
+  useEffect(() => {
+    // Scroll to top when location change
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }, [location]);
 
   return (
     <LayoutContext.Provider value={{ state, dispatch }}>

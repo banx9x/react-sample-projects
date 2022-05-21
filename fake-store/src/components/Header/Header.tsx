@@ -1,14 +1,13 @@
+import { useAppSelector } from 'store';
 import { NavLink, Logo } from 'components';
 import { LayoutContext } from 'components/Layout/LayoutContext';
 import { useCallback, useContext } from 'react';
-import {
-  AiOutlineSearch,
-  AiOutlineShopping,
-  AiOutlineUser,
-} from 'react-icons/ai';
+import { AiOutlineShopping, AiOutlineUser } from 'react-icons/ai';
 import { RiBarChartHorizontalLine, RiCloseLine } from 'react-icons/ri';
+import { selectTotalItems } from 'store/slices/cart.slice';
 
 const Header = () => {
+  const totalItems = useAppSelector(selectTotalItems);
   const { state, dispatch } = useContext(LayoutContext);
 
   const toggleSidebar = useCallback(() => {
@@ -18,12 +17,6 @@ const Header = () => {
   const toggleCart = useCallback(() => {
     dispatch({ type: state.showCart ? 'closeCart' : 'openCart' });
   }, [state.showCart]);
-
-  const toggleSearchbar = useCallback(() => {
-    dispatch({
-      type: state.showSearchbar ? 'closeSearchbar' : 'openSearchbar',
-    });
-  }, [state.showSearchbar]);
 
   return (
     <header className='py-3 fixed top-0 left-0 w-full bg-white shadow-md z-50'>
@@ -52,19 +45,13 @@ const Header = () => {
           </div>
 
           <div className='flex space-x-4 justify-end'>
-            {/* <button
-              className='text-xl relative bg-white rounded-full text-slate-500 border-[1px] border-slate-500 p-1'
-              onClick={toggleSearchbar}>
-              <AiOutlineSearch />
-            </button> */}
-
             <button
               className='text-xl relative bg-rose-500 rounded-full text-white p-1'
               onClick={toggleCart}>
               <AiOutlineShopping />
 
               <div className='text-xs rounded-full w-4 h-4 bg-amber-500 text-white absolute -right-1 -top-1 box-content'>
-                0
+                {totalItems}
               </div>
             </button>
 

@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import productApi from 'services/product.services';
 import productSlice from './slices/product.slice';
+import cartSlice from './slices/cart.slice';
 
 export const store = configureStore({
   reducer: {
     [productApi.reducerPath]: productApi.reducer,
     [productSlice.name]: productSlice.reducer,
+    [cartSlice.name]: cartSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([productApi.middleware]),
