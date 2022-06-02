@@ -9,12 +9,17 @@ interface TimerProps {}
 const Timer: React.FC<TimerProps> = ({}) => {
   const { state, audioRef, dispatch } = useContext(PlayerContext);
 
-  const { currentTime, duration } = state;
+  const { currentTime, duration, sliding } = state;
 
   const handleProgressChange = useCallback(
     (percent: number) => {
       if (!audioRef.current) return;
-      audioRef.current.currentTime = percent * duration;
+
+      if (sliding) {
+        dispatch({ type: 'durationChange', payload: percent * duration });
+      } else {
+        audioRef.current.currentTime = percent * duration;
+      }
     },
     [audioRef, duration]
   );
