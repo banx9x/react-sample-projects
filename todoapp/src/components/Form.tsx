@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { PulseLoader } from 'react-spinners';
-import { useCreateNewTodoQuery } from '../services/todo.services';
+import { useCreateNewTodoQuery } from 'services/todo.services';
 import Filter from './Filter';
 
 const Form: React.FC = () => {

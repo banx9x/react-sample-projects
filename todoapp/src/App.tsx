@@ -1,8 +1,8 @@
 import { useReducer } from 'react';
-import Info from './components/Info';
-import Form from './components/Form';
-import List from './components/List';
-import { AppContext, reducer } from './context/AppContext';
+import Info from 'components/Info';
+import Form from 'components/Form';
+import List from 'components/List';
+import { AppContext, reducer } from 'context/AppContext';
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, {

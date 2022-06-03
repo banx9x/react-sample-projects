@@ -1,22 +1,5 @@
-import { AppContext } from '../context/AppContext';
-import {
-  CreateTodoResponse,
-  ErrorResponse,
-  GetAllTodosResponse,
-  Todo,
-  UpdateTodoReponse,
-} from 'models/todo.model';
+import { AppContext } from 'context/AppContext';
 import { useContext, useEffect, useState } from 'react';
-
-interface Status {
-  isFetching: boolean;
-  isError: boolean;
-  error?: ErrorResponse;
-}
-
-interface GetAllTodos extends Status {
-  data?: Todo[];
-}
 
 export const useGetAllTodosQuery = (): GetAllTodos => {
   const { dispatch } = useContext(AppContext);
@@ -55,10 +38,6 @@ export const useGetAllTodosQuery = (): GetAllTodos => {
 
   return state;
 };
-
-interface CreateNewTodo extends Status {
-  data?: Todo;
-}
 
 export const useCreateNewTodoQuery = (): [
   CreateNewTodo,
@@ -110,10 +89,6 @@ export const useCreateNewTodoQuery = (): [
   return [state, createNewTodo];
 };
 
-interface UpdateTodo extends Status {
-  data?: Todo;
-}
-
 export const useUpdateTodoQuery = (): [
   UpdateTodo,
   (todo: Todo) => Promise<void>
@@ -163,8 +138,6 @@ export const useUpdateTodoQuery = (): [
 
   return [state, updateTodo];
 };
-
-interface DeleteTodo extends Status {}
 
 export const useDeleteTodoQuery = (): [
   DeleteTodo,

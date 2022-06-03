@@ -1,7 +1,7 @@
-import { AppContext } from '../context/AppContext';
+import { AppContext } from 'context/AppContext';
 import { useContext } from 'react';
 import { SyncLoader } from 'react-spinners';
-import { useGetAllTodosQuery } from '../services/todo.services';
+import { useGetAllTodosQuery } from 'services/todo.services';
 import Error from './Error';
 import Item from './Item';
 

@@ -1,4 +1,4 @@
-import { AppContext, FilterType } from '../context/AppContext';
+import { AppContext } from 'context/AppContext';
 import { useCallback, useContext } from 'react';
 import Option from './Option';
 

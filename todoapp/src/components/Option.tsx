@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { FilterType } from '../context/AppContext';
 
 interface OptionProps {
   label: string;

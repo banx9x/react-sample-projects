@@ -1,10 +1,6 @@
-import { Todo } from 'models/todo.model';
 import { useCallback } from 'react';
 import { BounceLoader, PulseLoader } from 'react-spinners';
-import {
-  useDeleteTodoQuery,
-  useUpdateTodoQuery,
-} from '../services/todo.services';
+import { useDeleteTodoQuery, useUpdateTodoQuery } from 'services/todo.services';
 import { BiTrash } from 'react-icons/bi';
 
 const Item: React.FC<Todo> = ({ id, title, completed }) => {

@@ -1,6 +1,6 @@
-import { AppContext } from '../context/AppContext';
+import { AppContext } from 'context/AppContext';
 import { useCallback, useContext } from 'react';
-import { useDeleteAllTodosQuery } from '../services/todo.services';
+import { useDeleteAllTodosQuery } from 'services/todo.services';
 import { PulseLoader } from 'react-spinners';
 
 const Info: React.FC = () => {

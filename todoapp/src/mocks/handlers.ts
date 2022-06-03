@@ -1,4 +1,4 @@
-import { Todo } from 'models/todo.model';
+// import { Todo } from 'models/todo.model';
 import { rest } from 'msw';
 
 const todos = localStorage.getItem('todos')
