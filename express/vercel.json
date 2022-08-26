@@ -1,0 +1,8 @@
+{
+    "functions": {
+      "./app.js": {
+        "runtime": ""
+      }
+    },
+    "trailingSlash": true
+}
