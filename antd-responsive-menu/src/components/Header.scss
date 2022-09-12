@@ -1,0 +1,48 @@
+.header {
+    background-color: rgb(29, 26, 54);
+    padding-bottom: 1px;
+
+    & .logo {
+        margin-bottom: 0;
+        color: white;
+    }
+
+    & .ant-menu {
+        background-color: transparent !important;
+        border: 0 !important;
+        color: white;
+
+        & .ant-menu-item,
+        & .ant-menu-submenu {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        & .ant-menu-submenu::after {
+            content: unset;
+        }
+
+        & .ant-menu-item.ant-menu-item-selected,
+        & .ant-menu-submenu.ant-menu-submenu-selected,
+        & .ant-menu-submenu.ant-menu-submenu-active,
+        & .ant-menu-submenu.ant-menu-submenu-open {
+            background-color: green;
+        }
+
+        & .ant-menu-item,
+        & .ant-menu-item.ant-menu-item-selected,
+        & .ant-menu-submenu.ant-menu-submenu-selected,
+        & .ant-menu-submenu.ant-menu-submenu-active,
+        & .ant-menu-submenu.ant-menu-submenu-open,
+        & .ant-menu-submenu-title:hover {
+            color: white !important;
+        }
+
+        & .ant-menu-item.ant-menu-item-selected::after,
+        & .ant-menu-submenu.ant-menu-submenu-selected::after,
+        & .ant-menu-submenu.ant-menu-submenu-active::after,
+        & .ant-menu-submenu.ant-menu-submenu-open::after {
+            display: none;
+        }
+    }
+}
